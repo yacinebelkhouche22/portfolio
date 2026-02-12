@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yacine Belkhouche | AI & Digital Trust Engineer</title>
+    <meta name="description" content="Portfolio of Yacine Belkhouche | Full-Stack & AI Engineer specializing in Secure Mobile Apps, Modern Web Development, and Digital Trust Systems based in Tlemcen, Algeria.">
+    <title>Yacine Belkhouche | Full-Stack & AI Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -56,8 +57,8 @@
         }
         .logo { font-family: var(--mono-font); color: var(--accent); font-weight: bold; cursor: pointer; text-shadow: 0 0 15px var(--accent-glow); text-decoration: none; font-size: 1rem; letter-spacing: -1px; }
         .nav-links { display: flex; gap: 30px; font-family: var(--mono-font); font-size: 0.8rem; }
-        .nav-links a { color: var(--text-dim); text-decoration: none; transition: 0.3s; display: flex; align-items: center; gap: 10px; cursor: pointer; }
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links a { color: var(--text-dim); text-decoration: none; transition: 0.3s; display: flex; align-items: center; gap: 10px; cursor: pointer; border: none; background: none; }
+        .nav-links a:hover, .nav-links a:focus { color: var(--accent); outline: none; }
 
         /* Hero */
         header { padding: 8rem 0 4rem; }
@@ -65,8 +66,24 @@
         h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1.5rem; line-height: 1.1; font-weight: 800; letter-spacing: -2px; }
         .hero-desc { font-size: 1.3rem; color: var(--text-dim); max-width: 850px; font-weight: 300; }
 
+        /* Buttons */
+        .btn-primary { padding: 12px 24px; background: var(--accent); border: none; border-radius: 6px; color: #fff; font-weight: 700; cursor: pointer; transition: 0.3s; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -5px var(--accent-glow); }
+        .btn-outline { padding: 12px 24px; background: transparent; border: 1px solid var(--accent); border-radius: 6px; color: var(--accent); font-weight: 700; cursor: pointer; transition: 0.3s; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; }
+        .btn-outline:hover { background: rgba(14, 165, 233, 0.1); }
+
         /* --- DIAGNOSTIC DASHBOARD STACK --- */
         .mission-grid { display: grid; grid-template-columns: 1.6fr 1.4fr; gap: 5rem; margin-top: 4rem; align-items: start; }
+        
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: 0.3s;
+        }
+        .service-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+
         .stack-diagnostic { 
             background: var(--card-bg); 
             border: 1px solid var(--accent);
@@ -86,9 +103,20 @@
             animation: scan 4s linear infinite;
         }
         @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+        
         .stack-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
         .stack-title { font-family: var(--mono-font); font-size: 0.85rem; color: var(--accent); font-weight: 700; }
-        .status-light { display: flex; align-items: center; gap: 8px; font-family: var(--mono-font); font-size: 0.65rem; color: #22c55e; }
+        
+        .status-light { display: flex; align-items: center; gap: 8px; font-family: var(--mono-font); font-size: 0.65rem; color: #22c55e; animation: textFlicker 3s infinite alternate; }
+        @keyframes textFlicker {
+            0%, 100% { opacity: 1; }
+            92% { opacity: 1; }
+            93% { opacity: 0.5; }
+            94% { opacity: 1; }
+            96% { opacity: 0.8; }
+            98% { opacity: 1; }
+        }
+        
         .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e; animation: pulse 2s infinite; }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
 
@@ -100,7 +128,20 @@
         /* Projects Layout */
         .section-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 5px; color: var(--text-dim); margin: 8rem 0 4rem; display: flex; align-items: center; }
         .section-title::after { content: ""; height: 1px; background: var(--border); flex-grow: 1; margin-left: 2rem; }
-        .project-card { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; margin-bottom: 10rem; cursor: pointer; }
+        
+        .project-card { 
+            display: grid; 
+            grid-template-columns: 1.2fr 0.8fr; 
+            gap: 4rem; 
+            align-items: center; 
+            margin-bottom: 10rem; 
+            cursor: pointer; 
+            outline: none;
+            transition: transform 0.3s ease;
+        }
+        .project-card:focus-visible { transform: scale(1.02); }
+        .project-card:focus-visible .project-img { box-shadow: 0 0 0 3px var(--accent); }
+
         .project-img { border-radius: 20px; aspect-ratio: 16/10; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
         .project-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: 0.8s; }
         .project-card:hover img { transform: scale(1.05); opacity: 1; }
@@ -108,13 +149,43 @@
 
         /* Detail View */
         .detail-view { animation: fadeIn 0.8s ease forwards; padding-bottom: 10rem; }
-        .back-btn { display: inline-flex; align-items: center; gap: 12px; color: var(--accent); text-decoration: none; font-size: 0.75rem; margin: 3rem 0; cursor: pointer; font-family: var(--mono-font); letter-spacing: 2px; }
+        .back-btn { display: inline-flex; align-items: center; gap: 12px; color: var(--accent); text-decoration: none; font-size: 0.75rem; margin: 3rem 0; cursor: pointer; font-family: var(--mono-font); letter-spacing: 2px; border: none; background: none; }
         .detail-hero { width: 100%; height: 450px; border-radius: 24px; object-fit: cover; margin-bottom: 4rem; border: 1px solid var(--border); }
         .detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 5rem; }
         .detail-text h2 { color: var(--accent); margin: 2.5rem 0 1.5rem; font-size: 1.6rem; letter-spacing: -0.5px; }
         .detail-text ul { list-style: none; margin-bottom: 2.5rem; }
         .detail-text li { margin-bottom: 1rem; padding-left: 1.5rem; position: relative; color: var(--text-dim); }
         .detail-text li::before { content: "›"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+
+        /* --- GALLERY GRID STYLES --- */
+        .gallery-section { margin-top: 4rem; padding-top: 4rem; border-top: 1px solid var(--border); }
+        .gallery-title { font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-main); font-weight: 700; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .gallery-item { border-radius: 12px; overflow: hidden; height: 200px; border: 1px solid var(--border); transition: 0.3s; cursor: pointer; }
+        .gallery-item:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        /* --- CODE BLOCK STYLE --- */
+        .code-block {
+            background: #0b1120;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            font-family: var(--mono-font);
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            overflow-x: auto;
+            position: relative;
+        }
+        .code-block::before {
+            content: "model_architecture.py";
+            position: absolute;
+            top: 10px; right: 15px;
+            color: var(--text-dim);
+            font-size: 0.7rem;
+            opacity: 0.5;
+        }
 
         /* Footer */
         footer { padding: 6rem 0 4rem; text-align: center; border-top: 1px solid var(--border); margin-top: auto; }
@@ -126,28 +197,50 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        @media (max-width: 1000px) { .mission-grid, .project-card, .detail-grid { grid-template-columns: 1fr; } }
+        /* Mobile Responsive Fixes */
+        @media (max-width: 1000px) { 
+            .mission-grid, .project-card, .detail-grid { grid-template-columns: 1fr; } 
+            .project-card { direction: ltr !important; gap: 2rem; }
+            .project-img { order: -1; }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <nav>
-            <a onclick="showPage('home')" class="logo">Yacine Belkhouche</a>
+            <a onclick="showPage('home')" class="logo" role="button" tabindex="0" onkeydown="handleKey(event, 'home')">Yacine Belkhouche</a>
             <div class="nav-links">
-                <a onclick="showPage('home')" style="cursor: pointer;"><i class="fa-solid fa-house"></i> HOME</a>
-                <a onclick="showPage('about')" style="cursor: pointer;"><i class="fa-solid fa-user-astronaut"></i> ABOUT</a>
+                <a onclick="showPage('home')" role="button" tabindex="0" onkeydown="handleKey(event, 'home')"><i class="fa-solid fa-house"></i> HOME</a>
+                <a onclick="showPage('about')" role="button" tabindex="0" onkeydown="handleKey(event, 'about')"><i class="fa-solid fa-user-astronaut"></i> ABOUT</a>
             </div>
         </nav>
 
         <div id="home">
             <header>
-                <span class="hero-tag">Engineering Trusted Autonomy</span>
-                <h1>Securing the Future <br>of Intelligent Systems.</h1>
+                <span class="hero-tag">Full-Stack & Intelligence Engineer</span>
+                <h1>Building Secure,<br>Next-Gen Experiences.</h1>
                 <p class="hero-desc">
-                    Architecting high-assurance infrastructure where <strong>Multi-modal Intelligence</strong> meets <strong>Applied Cryptography</strong> to defend the digital frontiers of identity and trust.
+                    I bridge the gap between <strong>complex backend security</strong> and <strong>beautiful user interfaces</strong>. From high-assurance banking infrastructure to immersive mobile apps.
                 </p>
+                <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                    <button onclick="showPage('p1')" class="btn-primary">View Engineering</button>
+                    <button onclick="showPage('about')" class="btn-outline">My Services</button>
+                </div>
             </header>
+
+            <div class="mission-grid" style="margin-top: 2rem; margin-bottom: 6rem; gap: 2rem;">
+                <div class="service-card">
+                    <div style="margin-bottom: 1rem;"><i class="fa-solid fa-mobile-screen" style="color: var(--accent); font-size: 1.5rem;"></i></div>
+                    <h3 style="margin-bottom: 0.5rem;">Mobile Experiences</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Native Android & iOS apps that feel fluid and look stunning. I build using Kotlin, Swift, or Flutter for rapid deployment.</p>
+                </div>
+                <div class="service-card">
+                    <div style="margin-bottom: 1rem;"><i class="fa-solid fa-layer-group" style="color: var(--accent); font-size: 1.5rem;"></i></div>
+                    <h3 style="margin-bottom: 0.5rem;">Modern Web</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">High-performance websites and dashboards. From portfolio sites to complex SaaS platforms using modern reactive frameworks.</p>
+                </div>
+            </div>
 
             <div class="section-title">Operational Briefing</div>
             <div class="mission-grid">
@@ -172,7 +265,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="stack-diagnostic">
                     <div class="stack-header">
                         <span class="stack-title"><i class="fa-solid fa-code-branch"></i> STACK_INTEGRITY</span>
@@ -181,8 +273,7 @@
                     <div class="stack-row">
                         <div class="row-label">Intelligence</div>
                         <div class="row-values">
-                            <div class="stack-item"><span class="slash">/</span>TensorFlow</div>
-                            <div class="stack-item"><span class="slash">/</span>PyTorch</div>
+                            <div class="stack-item"><span class="slash">/</span>TensorFlow / PyTorch</div>
                             <div class="stack-item"><span class="slash">/</span>OpenCV</div>
                         </div>
                     </div>
@@ -190,8 +281,7 @@
                         <div class="row-label">Security</div>
                         <div class="row-values">
                             <div class="stack-item"><span class="slash">/</span>mTLS / PKI</div>
-                            <div class="stack-item"><span class="slash">/</span>ECDSA</div>
-                            <div class="stack-item"><span class="slash">/</span>OpenSSL</div>
+                            <div class="stack-item"><span class="slash">/</span>ECDSA / OpenSSL</div>
                         </div>
                     </div>
                     <div class="stack-row">
@@ -209,18 +299,18 @@
 
             <div class="section-title">Case Studies & Research</div>
 
-            <div class="project-card" onclick="showPage('p1')">
-                <div class="project-img"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop"></div>
+            <div class="project-card" onclick="showPage('p1')" role="button" tabindex="0" onkeydown="handleKey(event, 'p1')">
+                <div class="project-img"><img src="https://plus.unsplash.com/premium_photo-1700830328143-5d960f6f33af?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Secure Code Abstract"></div>
                 <div class="project-info">
                     <span class="hero-tag">Security Architecture</span>
                     <h3>Secure Communication SDK</h3>
-                    <p style="color: var(--text-dim);">A cross-platform security layer enabling mTLS and hardware-backed cryptographic protection for fintech and healthcare.</p>
+                    <p style="color: var(--text-dim);">A cross-platform security layer enabling mTLS and hardware-backed cryptographic protection.</p>
                     <div class="tech-tags"><span class="tag">mTLS</span><span class="tag">PKI</span><span class="tag">Kotlin/Swift</span></div>
                 </div>
             </div>
 
-            <div class="project-card" style="direction: rtl;" onclick="showPage('p2')">
-                <div class="project-img" style="direction: ltr;"><img src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=1000&auto=format&fit=crop"></div>
+            <div class="project-card" style="direction: rtl;" onclick="showPage('p2')" role="button" tabindex="0" onkeydown="handleKey(event, 'p2')">
+                <div class="project-img" style="direction: ltr;"><img src="https://plus.unsplash.com/premium_photo-1661716987362-0b90076d0ba4?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="NFC Tech Abstract"></div>
                 <div class="project-info" style="direction: ltr;">
                     <span class="hero-tag">Identity Systems</span>
                     <h3>NFC ID Verification</h3>
@@ -229,19 +319,19 @@
                 </div>
             </div>
 
-            <div class="project-card" onclick="showPage('p3')">
-                <div class="project-img"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop"></div>
+            <div class="project-card" onclick="showPage('p3')" role="button" tabindex="0" onkeydown="handleKey(event, 'p3')">
+                <div class="project-img"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" alt="AI Neural Network Abstract"></div>
                 <div class="project-info">
                     <span class="hero-tag">Forensic AI // Research</span>
                     <h3>F2-Net: Fusion Architecture</h3>
-                    <p style="color: var(--text-dim);">Integrated detection of biometric injection attacks and document forgery in remote onboarding processes.</p>
+                    <p style="color: var(--text-dim);">Integrated detection of biometric injection attacks and document forgery.</p>
                     <div class="tech-tags"><span class="tag">Fusion Architecture</span><span class="tag">CNN-LSTM</span><span class="tag">Forensics</span></div>
                 </div>
             </div>
         </div>
 
         <div id="about" class="detail-view hidden">
-            <a onclick="showPage('home')" class="back-btn"><i class="fa-solid fa-arrow-left"></i> BACK_TO_SYSTEM</a>
+            <a onclick="showPage('home')" class="back-btn" role="button" tabindex="0" onkeydown="handleKey(event, 'home')"><i class="fa-solid fa-arrow-left"></i> BACK_TO_SYSTEM</a>
             <header style="padding-bottom: 2rem;">
                 <span class="hero-tag">Tlemcen, Algeria</span>
                 <h1>Engineering Trust.</h1>
@@ -249,27 +339,28 @@
             </header>
             <div class="detail-grid">
                 <div class="detail-text">
-                    <p>I am currently concluding a rigorous <strong>5-year Computer Science curriculum</strong> specialized in <strong>Artificial Intelligence</strong>. My focus lies in architecting resilient digital environments where security is the foundation, not an afterthought.</p>
-                    <h2>Core Focus</h2>
+                    <p>I am a <strong>Computer Science Engineer</strong> specialized in <strong>Artificial Intelligence</strong>. I don't just write code; I build products.</p>
+                    <p style="margin-top: 1rem;">My unique advantage is versatility. I can discuss <strong>cryptographic protocols</strong> with your CTO in the morning, and design a <strong>pixel-perfect UI animation</strong> for your marketing team in the afternoon.</p>
+                    <h2 style="margin-top: 2rem;">What I Deliver</h2>
                     <ul>
-                        <li><strong>Deep Learning Models:</strong> Designing and deploying multi-modal architectures for complex forensic challenges.</li>
-                        <li><strong>Secure System Engineering:</strong> Building cryptographic infrastructures that manage full certificate lifecycles on-device.</li>
-                        <li><strong>Full-Stack Development:</strong> Developing high-performance mobile applications and websites using <strong>Kotlin, Swift, and Flutter</strong>.</li>
-                        <li><strong>Applied Cryptography:</strong> Researching zero-trust communication protocols and hardware-backed key protection.</li>
+                        <li><strong>Consumer Apps:</strong> Polished mobile applications (Android/iOS) with focus on UX and smooth performance.</li>
+                        <li><strong>Web Platforms:</strong> Modern, responsive websites that convert visitors into users.</li>
+                        <li><strong>Secure Systems:</strong> Backend infrastructure that protects user data and ensures privacy (GDPR/Compliance).</li>
+                        <li><strong>AI Integration:</strong> Adding smart features like biometrics or prediction models to standard apps.</li>
                     </ul>
                 </div>
                 <div class="sidebar-card">
-                    <h3 style="font-family: var(--mono-font); font-size: 0.8rem; color: var(--accent); margin-bottom: 1rem;">[ IDENTITY_LOG ]</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.5rem;"><strong>Name:</strong> Yacine Belkhouche</p>
-                    <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.5rem;"><strong>Level:</strong> Final Year CS</p>
-                    <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.5rem;"><strong>Base:</strong> Tlemcen, DZ</p>
+                    <h3 style="font-family: var(--mono-font); font-size: 0.8rem; color: var(--accent); margin-bottom: 1rem;">[ STATUS_LOG ]</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.5rem;"><strong>Role:</strong> Software Engineer</p>
+                    <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.5rem;"><strong>Degree:</strong> Master's in AI (Completed)</p>
+                    <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.5rem;"><strong>Availability:</strong> Open for Projects</p>
                 </div>
             </div>
         </div>
 
         <div id="p1" class="detail-view hidden">
-            <a onclick="showPage('home')" class="back-btn"><i class="fa-solid fa-arrow-left"></i> BACK_TO_SYSTEM</a>
-            <img class="detail-hero" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop">
+            <a onclick="showPage('home')" class="back-btn" role="button" tabindex="0" onkeydown="handleKey(event, 'home')"><i class="fa-solid fa-arrow-left"></i> BACK_TO_SYSTEM</a>
+            <img class="detail-hero" src="https://plus.unsplash.com/premium_photo-1700830328143-5d960f6f33af?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Secure Code">
             <h1>Secure Communication SDK</h1>
             <div class="detail-grid">
                 <div class="detail-text">
@@ -286,11 +377,21 @@
                     <div class="tech-tags"><span class="tag">Kotlin</span><span class="tag">Swift</span><span class="tag">BouncyCastle</span></div>
                 </div>
             </div>
+
+            <div class="gallery-section">
+                <div class="gallery-title">SDK Integration Preview</div>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="mtls1.jpg" alt="mTLS App Screen 1"></div>
+                    <div class="gallery-item"><img src="mtls2.jpg" alt="mTLS App Screen 2"></div>
+                    <div class="gallery-item"><img src="mtls3.jpg" alt="mTLS App Screen 3"></div>
+                    <div class="gallery-item"><img src="mtls4.jpg" alt="mTLS App Screen 4"></div>
+                </div>
+            </div>
         </div>
 
         <div id="p2" class="detail-view hidden">
-            <a onclick="showPage('home')" class="back-btn"><i class="fa-solid fa-arrow-left"></i> BACK_TO_SYSTEM</a>
-            <img class="detail-hero" src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=1000&auto=format&fit=crop">
+            <a onclick="showPage('home')" class="back-btn" role="button" tabindex="0" onkeydown="handleKey(event, 'home')"><i class="fa-solid fa-arrow-left"></i> BACK_TO_SYSTEM</a>
+            <img class="detail-hero" src="https://plus.unsplash.com/premium_photo-1661716987362-0b90076d0ba4?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="NFC Tech">
             <h1>NFC Identity Verification</h1>
             <div class="detail-grid">
                 <div class="detail-text">
@@ -306,11 +407,20 @@
                     <div class="tech-tags"><span class="tag">NFC-Core</span><span class="tag">MRZ Recognition</span></div>
                 </div>
             </div>
+
+            <div class="gallery-section">
+                <div class="gallery-title">Interface & Scan Flow</div>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="NFC1.jpg" alt="NFC Scan Flow 1"></div>
+                    <div class="gallery-item"><img src="NFC2.jpg" alt="NFC Scan Flow 2"></div>
+                    <div class="gallery-item"><img src="NFC3.jpg" alt="NFC Scan Flow 3"></div>
+                </div>
+            </div>
         </div>
 
         <div id="p3" class="detail-view hidden">
-            <a onclick="showPage('home')" class="back-btn"><i class="fa-solid fa-arrow-left"></i> BACK_TO_SYSTEM</a>
-            <img class="detail-hero" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop">
+            <a onclick="showPage('home')" class="back-btn" role="button" tabindex="0" onkeydown="handleKey(event, 'home')"><i class="fa-solid fa-arrow-left"></i> BACK_TO_SYSTEM</a>
+            <img class="detail-hero" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" alt="AI Neural Network">
             <h1>F2-Net: Forensic Fusion Network</h1>
             <div class="detail-grid">
                 <div class="detail-text">
@@ -327,27 +437,59 @@
                     <div class="tech-tags"><span class="tag">CNN-LSTM</span><span class="tag">rPPG</span></div>
                 </div>
             </div>
+
+            <div class="gallery-section">
+                <div class="gallery-title">System Architecture</div>
+                <div class="gallery-grid" style="margin-bottom: 2rem; grid-template-columns: 1fr;">
+                    <div class="gallery-item" style="height: 350px;">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop" alt="Model Architecture Diagram Placeholder">
+                    </div>
+                </div>
+
+                <div class="gallery-title">Model Logic</div>
+                <div class="code-block">
+class F2Net(nn.Module):
+    def __init__(self):
+        super(F2Net, self).__init__()
+        # Physiological Stream (rPPG)
+        self.phys_branch = PhysNet(in_channels=3)
+        
+        # Visual Forensics Stream
+        self.visual_branch = Xception(pretrained=True)
+        
+        # Attention Fusion Layer
+        self.attention = MultiHeadAttention(embed_dim=512)
+        
+    def forward(self, face_frames, signal_map):
+        phys_feat = self.phys_branch(signal_map)
+        vis_feat = self.visual_branch(face_frames)
+        
+        # Dynamic Weighting based on confidence
+        fused_features = self.attention(phys_feat, vis_feat)
+        return self.classifier(fused_features)
+                </div>
+            </div>
         </div>
 
     </div>
 
     <footer>
         <div class="footer-socials">
-            <a href="https://www.linkedin.com/in/yacine-belkhouche-766a52252/" target="_blank">
+            <a href="https://www.linkedin.com/in/yacine-belkhouche-766a52252/" target="_blank" aria-label="LinkedIn Profile">
                 <i class="fa-brands fa-linkedin-in"></i>
                 <span>LINKEDIN</span>
             </a>
-            <a href="https://github.com/yacine-belkhouche" target="_blank">
+            <a href="https://github.com/yacine-belkhouche" target="_blank" aria-label="GitHub Profile">
                 <i class="fa-brands fa-github"></i>
                 <span>GITHUB</span>
             </a>
-            <a href="https://wa.me/+213672128799" target="_blank">
+            <a href="https://wa.me/+213672128799" target="_blank" aria-label="WhatsApp Contact">
                 <i class="fa-solid fa-paper-plane"></i>
                 <span>WHATSAPP</span>
             </a>
         </div>
         <p style="font-family: var(--mono-font); font-size: 0.7rem; color: var(--text-dim); letter-spacing: 2px;">
-            YACINE BELKHOUCHE // TLEMCEN_ALGERIA // 2026_VERSION
+            YACINE BELKHOUCHE // ENGINEER // OPEN_TO_WORK
         </p>
     </footer>
 
@@ -362,9 +504,18 @@
             if (target) {
                 target.classList.remove('hidden');
                 target.style.animation = 'fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+                target.focus();
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        function handleKey(event, id) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                showPage(id);
+            }
+        }
+
         window.onload = () => showPage('home');
     </script>
 </body>
