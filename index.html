@@ -175,11 +175,11 @@
             border-radius: 12px;
             border: 1px solid var(--border);
             font-family: var(--mono-font);
-            font-size: 0.8rem; /* Slightly smaller for mobile code readability */
+            font-size: 0.8rem;
             color: #e2e8f0;
             overflow-x: auto;
             position: relative;
-            white-space: pre; /* Preserves formatting */
+            white-space: pre; 
         }
         .code-block::before {
             content: "model_architecture.py";
@@ -475,8 +475,8 @@
             <div class="gallery-section">
                 <div class="gallery-title">System Architecture</div>
                 <div class="gallery-grid" style="margin-bottom: 2rem; grid-template-columns: 1fr;">
-                    <div class="gallery-item" style="height: 650px; width: fit-content;">
-                        <img src="F2-net.png" alt="Model Architecture Diagram Placeholder">
+                    <div class="gallery-item" style="height: auto; width: 100%;">
+                        <img src="F2-net.png" style="width: 100%; height: auto; object-fit: contain;" alt="Model Architecture Diagram">
                     </div>
                 </div>
 
